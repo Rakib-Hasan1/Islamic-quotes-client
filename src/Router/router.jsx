@@ -3,6 +3,10 @@ import RootLayout from "../Layouts/RootLayout";
 import LandingPage from "../Pages/LandingPage";
 import QuotesList from "../Pages/QuotesList";
 import AddQuotes from "../Pages/AddQuotes";
+import DashboardHome from "../Pages/Dashboard/DashboardHome";
+import AuthLayout from "../Layouts/AuthLayout";
+import Login from "../Pages/AuthLayout/Login";
+import Register from "../Pages/AuthLayout/Register";
 
 export const router = createBrowserRouter([
     {
@@ -21,6 +25,24 @@ export const router = createBrowserRouter([
                 path: "add-quote",
                 Component: AddQuotes
             },
-        ]
+        ],
     },
+    {
+        path: "/dashboard",
+        Component: DashboardHome
+    }, 
+    {
+        path: "/",
+        Component: AuthLayout,
+        children: [
+            {
+                path: "login",
+                Component:Login 
+            },
+            {
+                path: "register",
+                Component: Register
+            }
+        ]
+    }
 ]);

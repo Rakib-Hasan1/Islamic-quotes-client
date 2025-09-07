@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { Link, NavLink } from "react-router";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { AuthContext } from "../Contexts/AuthContext/AuthContext";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const authInfo = use(AuthContext);
+    console.log(authInfo);
 
     const links = [
         { name: "Home", path: "/" },
         { name: "Quotes List", path: "/quotes" },
         { name: "Add Quote", path: "/add-quote" },
+        { name: "Dashboard", path: "/dashboard" },
     ];
 
     return (
@@ -24,7 +28,7 @@ const Navbar = () => {
                     </Link>
 
                     {/* Desktop Menu */}
-                    <ul className="hidden md:flex space-x-6 text-red-100 font-medium">
+                    <ul className="hidden md:flex items-center space-x-6 text-red-100 font-medium">
                         {links.map((link) => (
                             <li key={link.name}>
                                 <NavLink
@@ -36,8 +40,10 @@ const Navbar = () => {
                                 >
                                     {link.name}
                                 </NavLink>
+                                
                             </li>
                         ))}
+                        <Link to={"login"}><button className="font-semibold bg-gray-300 py-2 px-3 rounded-md text-gray-900 hover:bg-gray-400 cursor-pointer transition">Login</button></Link>
                     </ul>
 
                     {/* Mobile Button */}
