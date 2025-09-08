@@ -7,25 +7,19 @@ const AuthLayout = () => {
             {/* Left Side - Form Section */}
             <div className="w-full md:w-1/2 flex items-center justify-center px-6 py-12 bg-white">
                 <div className="w-full max-w-md space-y-8">
-                    <div className="text-center">
-                        <h1 className="text-3xl font-bold text-green-700">Welcome Back</h1>
-                        <p className="mt-2 text-gray-600">
-                            Login to continue or create a new account to get started.
-                        </p>
-                    </div>
 
                     {/* Nested Routes Render Here (Login/Register) */}
                     <Outlet />
 
                     {/* Toggle Links */}
                     <div className="text-center mt-6 text-gray-600">
-                        <p>
+                        <p className="text-lg font-semibold">
                             Don’t have an account?{" "}
                             <Link to="/register" className="text-green-600 font-medium hover:underline">
                                 Register
                             </Link>
                         </p>
-                        <p className="mt-2">
+                        <p className="mt-2 text-lg font-semibold">
                             Already have an account?{" "}
                             <Link to="/login" className="text-green-600 font-medium hover:underline">
                                 Login
