@@ -1,8 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import useAuth from "../../Hooks/useAuth";
+import { toast } from "react-toastify";
 
 const Login = () => {
-    
+    const { signInUser } = useAuth();
     const {
         register,
         handleSubmit,
@@ -10,7 +12,18 @@ const Login = () => {
     } = useForm();
 
     const onSubmit = (data) => {
-        console.log(data);
+        signInUser(data.email, data.password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                console.log(user);
+                toast('Login Successful');
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode, errorMessage);
+            });
     };
 
     return (
@@ -66,7 +79,7 @@ const Login = () => {
                     {/* Extra Options */}
                     <div className="flex items-center justify-between text-sm">
                         <label className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
-                            <input type="checkbox" className="accent-indigo-500"/>
+                            <input type="checkbox" className="accent-indigo-500" />
                             Remember me
                         </label>
                         <a className="text-indigo-500 hover:underline">

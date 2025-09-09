@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../Hooks/useAuth";
+import { toast } from "react-toastify";
 
 const Register = () => {
     const { createUser } = useAuth();
@@ -17,6 +18,7 @@ const Register = () => {
                 // Signed up 
                 const user = userCredential.user;
                 console.log(user);
+                toast('Register Successful');
             })
             .catch((error) => {
                 const errorCode = error.code;

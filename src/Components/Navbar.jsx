@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { AuthContext } from "../Contexts/AuthContext/AuthContext";
+import useAuth from "../Hooks/useAuth";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-
+    const { user } = useAuth();
 
     const links = [
         { name: "Home", path: "/" },
@@ -39,11 +39,26 @@ const Navbar = () => {
                                 >
                                     {link.name}
                                 </NavLink>
-                                
+
                             </li>
                         ))}
-                        <Link to={"login"}><button className="font-semibold bg-gray-300 py-2 px-3 rounded-md text-gray-900 hover:bg-gray-400 cursor-pointer transition">Login</button></Link>
                     </ul>
+                    {user ? (
+                        <button
+
+                            className="px-4 py-2 rounded-lg bg-gradient-to-r from-red-500 to-orange-500 text-white font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer"
+                        >
+                            Logout
+                        </button>
+                    ) : (
+                        <Link to="/login">
+                            <button
+                                className="px-4 py-2 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer"
+                            >
+                                Login
+                            </button>
+                        </Link>
+                    )}
 
                     {/* Mobile Button */}
                     <div className="md:hidden">
