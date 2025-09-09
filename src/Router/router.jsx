@@ -19,7 +19,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "quotes",
-                Component: QuotesList
+                Component: QuotesList,
             },
             {
                 path: "add-quote",
