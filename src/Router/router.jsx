@@ -7,6 +7,7 @@ import DashboardHome from "../Pages/Dashboard/DashboardHome";
 import AuthLayout from "../Layouts/AuthLayout";
 import Login from "../Pages/AuthLayout/Login";
 import Register from "../Pages/AuthLayout/Register";
+import PrivateRoute from "@/Routes/PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -23,21 +24,21 @@ export const router = createBrowserRouter([
             },
             {
                 path: "add-quote",
-                Component: AddQuotes
+                element: <PrivateRoute><AddQuotes /></PrivateRoute>
             },
         ],
     },
     {
         path: "/dashboard",
         Component: DashboardHome
-    }, 
+    },
     {
         path: "/",
         Component: AuthLayout,
         children: [
             {
                 path: "login",
-                Component:Login 
+                Component: Login
             },
             {
                 path: "register",
