@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../Hooks/useAuth";
 import { toast } from "react-toastify";
+import SocialLogin from "@/Components/SocialLogin";
 
 const Login = () => {
     const { signInUser } = useAuth();
@@ -94,6 +95,8 @@ const Login = () => {
                     >
                         Login
                     </button>
+                    {/* Social Login */}
+                    <SocialLogin label="Login with Google"/>
                 </form>
             </div>
         </div>

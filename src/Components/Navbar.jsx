@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { Link, NavLink } from "react-router";
 import { FaBars, FaTimes } from "react-icons/fa";
 import useAuth from "../Hooks/useAuth";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const { user } = useAuth();
+    const { user, logoutUser } = useAuth();
 
     const links = [
         { name: "Home", path: "/" },
@@ -13,6 +14,17 @@ const Navbar = () => {
         { name: "Add Quote", path: "/add-quote" },
         { name: "Dashboard", path: "/dashboard" },
     ];
+
+    const handleLogout = () => {
+        logoutUser()
+            .then(() => {
+                // Sign-out successful.
+                toast.warn("Logout Successful")
+            }).catch((error) => {
+                // An error happened.
+                console.log(error);
+            });
+    }
 
     return (
         <nav className="bg-slate-900 shadow-md sticky top-0 z-50 nav">
@@ -45,7 +57,7 @@ const Navbar = () => {
                     </ul>
                     {user ? (
                         <button
-
+                            onClick={handleLogout}
                             className="px-4 py-2 rounded-lg bg-gradient-to-r from-red-500 to-orange-500 text-white font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer"
                         >
                             Logout
