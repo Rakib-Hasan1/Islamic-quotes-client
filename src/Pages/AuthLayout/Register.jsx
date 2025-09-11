@@ -48,12 +48,12 @@ const Register = () => {
 
     return (
         <div className="flex items-center justify-center bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 rounded-md">
-            <div className="w-full max-w-md bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-8">
+            <div className="w-full max-w-md bg-gray-900 rounded-2xl shadow-lg p-8">
                 {/* Title */}
                 <h2 className="text-2xl font-bold text-red-100 dark:text-white text-center mb-2">
                     Create Account
                 </h2>
-                <p className="text-sm text-gray-500 dark:text-gray-400 text-center mb-6">
+                <p className="text-md text-gray-200 text-center mb-6">
                     Register to get started with your journey
                 </p>
 
@@ -63,7 +63,7 @@ const Register = () => {
                         <input
                             placeholder="Full Name"
                             {...register("name", { required: "Name is required" })}
-                            className="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-800 dark:text-white"
+                            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-white"
                         />
                         {errors.name && (
                             <span className="text-red-500 text-sm">{errors.name.message}</span>
@@ -82,7 +82,7 @@ const Register = () => {
                                     message: "Enter a valid email",
                                 },
                             })}
-                            className="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-800 dark:text-white"
+                            className="w-full border border-gray-300  rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-white"
                         />
                         {errors.email && (
                             <span className="text-red-500 text-sm">{errors.email.message}</span>
@@ -101,7 +101,7 @@ const Register = () => {
                                     message: "Password must be at least 6 characters",
                                 },
                             })}
-                            className="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-800 dark:text-white"
+                            className="w-full border border-gray-300  rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-white"
                         />
                         {errors.password && (
                             <span className="text-red-500 text-sm">
@@ -120,7 +120,7 @@ const Register = () => {
                                 validate: (value) =>
                                     value === watch("password") || "Passwords do not match",
                             })}
-                            className="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-800 dark:text-white"
+                            className="w-full border border-gray-300  rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-white"
                         />
                         {errors.confirmPassword && (
                             <span className="text-red-500 text-sm">

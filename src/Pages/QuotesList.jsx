@@ -35,19 +35,22 @@ const QuotesList = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
                 {quotes.map((quote) => (
-                    <div
-                        key={quote._id}
-                        className="bg-white shadow-lg rounded-2xl p-6 border border-gray-100 hover:shadow-2xl transition transform hover:-translate-y-1"
-                    >
-                        <p className="text-gray-700 italic font-semibold mb-4 leading-relaxed">
-                            “{quote.quote}”
-                        </p>
-                        {quote.author && (
-                            <p className="text-right text-indigo-600 font-semibold">
-                                — {quote.author}
+                    quote?.status === "pending" ? "" : (
+                        <div
+                            key={quote._id}
+                            className="bg-white shadow-lg rounded-2xl p-6 border border-gray-100 hover:shadow-2xl transition transform hover:-translate-y-1"
+                        >
+                            <p className="text-gray-700 italic font-semibold mb-4 leading-relaxed">
+                                “{quote.quote}”
                             </p>
-                        )}
-                    </div>
+                            {(quote.reference || quote.author) && (
+                                <div className="text-right text-indigo-600 font-semibold space-y-1">
+                                    {quote.reference && <p>— {quote.reference}</p>}
+                                    {quote.author && <p>— {quote.author}</p>}
+                                </div>
+                            )}
+                        </div>
+                    )
                 ))}
             </div>
         </div>

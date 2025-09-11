@@ -34,12 +34,12 @@ const Login = () => {
 
     return (
         <div className="flex items-center justify-center bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 rounded-md">
-            <div className="w-full max-w-md bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-8">
+            <div className="w-full max-w-md bg-gray-900 rounded-2xl shadow-lg p-8">
                 {/* Title */}
-                <h2 className="text-2xl font-bold text-red-100 dark:text-white text-center mb-2">
+                <h2 className="text-2xl font-bold text-red-100 text-center mb-2">
                     Welcome Back
                 </h2>
-                <p className="text-sm text-gray-500 dark:text-gray-400 text-center mb-6">
+                <p className="text-md text-gray-200 text-center mb-6">
                     Please login to your account
                 </p>
 
@@ -56,7 +56,7 @@ const Login = () => {
                                     message: "Enter a valid email address",
                                 },
                             })}
-                            className="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-800 dark:text-white"
+                            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500  text-white"
                         />
                         {errors.email && (
                             <span className="text-red-500 text-sm">{errors.email.message}</span>
@@ -75,7 +75,7 @@ const Login = () => {
                                     message: "Password must be at least 6 characters",
                                 },
                             })}
-                            className="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-800 dark:text-white"
+                            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-white"
                         />
                         {errors.password && (
                             <span className="text-red-500 text-sm">{errors.password.message}</span>
@@ -84,7 +84,7 @@ const Login = () => {
 
                     {/* Extra Options */}
                     <div className="flex items-center justify-between text-sm">
-                        <label className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+                        <label className="flex items-center gap-2 text-gray-300">
                             <input type="checkbox" className="accent-indigo-500" />
                             Remember me
                         </label>
