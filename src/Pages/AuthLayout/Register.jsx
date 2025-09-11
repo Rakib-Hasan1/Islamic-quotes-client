@@ -4,10 +4,13 @@ import useAuth from "../../Hooks/useAuth";
 import { toast } from "react-toastify";
 import SocialLogin from "@/Components/SocialLogin";
 import useAxios from "@/Hooks/useAxios";
+import { useNavigate } from "react-router";
 
 const Register = () => {
     const { createUser } = useAuth();
     const axiosInstance = useAxios();
+    const navigate = useNavigate();
+    const from = location.state || "/";
     const {
         register,
         handleSubmit,
@@ -17,7 +20,7 @@ const Register = () => {
 
     const onSubmit = (data) => {
         createUser(data.email, data.password)
-            .then(async(result) => {
+            .then(async (result) => {
                 console.log(result.user);
                 // Signed up 
                 const userInfo = {
@@ -32,6 +35,7 @@ const Register = () => {
 
                 const userRes = await axiosInstance.post("/users", userInfo);
                 console.log(userRes);
+                navigate(from);
 
                 toast('Register Successful');
             })
@@ -132,7 +136,7 @@ const Register = () => {
                     >
                         Register
                     </button>
-                    <SocialLogin label="Register with Google" />
+                    <SocialLogin label="Register with Google" from={from} />
                 </form>
             </div>
         </div>
