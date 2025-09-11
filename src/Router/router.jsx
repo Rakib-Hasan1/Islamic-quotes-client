@@ -8,6 +8,7 @@ import AuthLayout from "../Layouts/AuthLayout";
 import Login from "../Pages/AuthLayout/Login";
 import Register from "../Pages/AuthLayout/Register";
 import PrivateRoute from "@/Routes/PrivateRoute";
+import MyQuotes from "@/Pages/MyQuotes";
 
 export const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
             {
                 path: "add-quote",
                 element: <PrivateRoute><AddQuotes /></PrivateRoute>
+            },
+            {
+                path: "my-quotes",
+                element: <PrivateRoute><MyQuotes/></PrivateRoute>
             },
         ],
     },

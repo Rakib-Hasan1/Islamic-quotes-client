@@ -12,6 +12,7 @@ const Navbar = () => {
         { name: "Home", path: "/" },
         { name: "Quotes List", path: "/quotes" },
         { name: "Add Quote", path: "/add-quote" },
+        { name: "My Quotes", path: "/my-quotes" },
         { name: "Dashboard", path: "/dashboard" },
     ];
 
